@@ -1,0 +1,63 @@
+$base1: #8a25e2;
+
+.login,
+.register {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h2 {
+    text-align: center;
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+  }
+
+  form {
+    width: 500px;
+    background-color: $base1;
+    padding: 15px;
+    border-radius: 5px;
+
+    label,
+    input,
+    button {
+      display: block;
+    }
+
+    label {
+      color: white;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    input {
+      padding: 10px;
+      border: none;
+      width: 100%;
+      margin-bottom: 15px;
+      border-radius: 5px;
+    }
+
+    button {
+      color: white;
+      background: none;
+      border: 1px solid white;
+      border-radius: 5px;
+      padding: 10px;
+      margin-left: auto;
+      cursor: pointer;
+    }
+    p {
+      text-align: center;
+      color: rgb(142, 44, 44);
+      font-size: 1.2rem;
+    }
+    span a {
+      text-decoration: none;
+      color: white;
+      cursor: pointer;
+    }
+  }
+}
