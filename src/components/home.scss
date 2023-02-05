@@ -1,0 +1,39 @@
+.home {
+  margin-top: 5rem;
+  padding: 0 1rem;
+  .posts {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3rem;
+
+    .post {
+      display: flex;
+      justify-content: space-between;
+
+      .description {
+        margin: auto 0;
+        h2 {
+          font-size: 2.5rem;
+        }
+        span {
+          font-size: 1.8rem;
+          text-align: justify;
+          width: 50rem;
+        }
+        a {
+          text-decoration: none;
+          color: black;
+        }
+      }
+
+      .img {
+        img {
+          width: 40rem;
+          height: 30rem;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}

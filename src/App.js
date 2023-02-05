@@ -15,10 +15,10 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/login/" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/write" element={<Write />} />
-            <Route path="/single" element={<Single />} />
+            <Route path="/single/:id" element={<Single />} />
           </Routes>
           <Footer />
         </div>
