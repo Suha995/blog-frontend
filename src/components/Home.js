@@ -4,23 +4,43 @@ import { useState, useEffect } from "react";
 
 const Home = () => {
   const [posts, setPosts] = useState(null);
-  const [category, setCategory] = useState("all");
-  const url = "http://localhost:8000/posts";
+  const [category, setCategory] = useState("");
+  let url = "http://localhost:8000/posts";
+
+  // const handleChangeCategory = (e) => {
+  //   setCategory(e.target.value);
+  //   console.log(category);
+  //   if (category === "") {
+  //     setUrl("http://localhost:8000/posts");
+  //   } else {
+  //     setUrl("http://localhost:8000/posts" + "?category=" + category);
+  //   }
+  //   console.log(url);
+  // };
 
   useEffect(() => {
+    url = category === "" ? url : url + "?category=" + category;
+    console.log("jdbjfbsmfbm,sm,s");
+    console.log(url);
+    console.log(category);
     fetch(url)
       .then((res) => res.json())
       .then((data) => setPosts(data))
       .catch((err) => console.log(err.message));
-  }, []);
+    console.log(url);
+  }, [category]);
 
   return (
     <div className="home">
       <div className="categories">
-        <select onChange={(e) => setCategory(e.target.value)}>
-          <option value="all">All</option>
+        <select
+          onChange={(e) => {
+            setCategory(e.target.value);
+          }}
+        >
+          <option value="">All</option>
           <option value="food">Food</option>
-          <option value="tech">Technology</option>
+          <option value="technology">Technology</option>
         </select>
       </div>
       <div className="posts">
