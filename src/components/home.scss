@@ -1,11 +1,12 @@
+$primary: #eddbc7;
+$second: #a7727d;
 .home {
   margin-top: 5rem;
   padding: 0 1rem;
   .posts {
     display: flex;
     flex-direction: column;
-
-    gap: 3rem;
+    gap: 7rem;
 
     .post {
       display: flex;
@@ -14,9 +15,10 @@
       .description {
         margin: auto 0;
         h2 {
-          font-size: 2.5rem;
+          font-size: 2.7rem;
+          margin-bottom: 2rem;
         }
-        span {
+        p {
           font-size: 1.8rem;
           text-align: justify;
           width: 50rem;
@@ -24,6 +26,22 @@
         a {
           text-decoration: none;
           color: black;
+        }
+        button {
+          display: inline-block;
+          color: $second;
+          border: $second 1px solid;
+          background: none;
+          font-size: 1.5rem;
+          padding: 5px 15px;
+          margin-left: auto;
+          margin-top: 2rem;
+          cursor: pointer;
+        }
+        button:hover {
+          background-color: $second;
+          color: white;
+          border: $primary 1px solid;
         }
       }
 
@@ -34,6 +52,9 @@
           object-fit: cover;
         }
       }
+    }
+    .post:nth-child(even) {
+      flex-direction: row-reverse;
     }
   }
 }

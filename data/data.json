@@ -1,0 +1,31 @@
+{
+  "posts": [
+    {
+      "id": 0,
+      "title": " Lorem ipsum dolor sit",
+      "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero quasi vero\n      quas fugiat recusandae quaerat aperiam delectus molestias saepe, laborum\n      doloribus nisi? Esse debitis sunt rerum neque deserunt, ex consequuntur!",
+      "author": "JACK",
+      "img": "images/image-01.jpg"
+    },
+
+    {
+      "id": 1,
+      "title": " Lorem ipsum dolor sit",
+      "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero quasi vero\n      quas fugiat recusandae quaerat aperiam delectus molestias saepe, laborum\n      doloribus nisi? Esse debitis sunt rerum neque deserunt, ex consequuntur!",
+      "img": "images/image-02.jpg"
+    },
+    {
+      "id": 2,
+      "title": " Lorem ipsum dolor sit",
+      "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero quasi vero\n      quas fugiat recusandae quaerat aperiam delectus molestias saepe, laborum\n      doloribus nisi? Esse debitis sunt rerum neque deserunt, ex consequuntur!",
+      "img": "images/image-03.jpg"
+    },
+
+    {
+      "id": 4,
+      "title": " Lorem ipsum dolor sit",
+      "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero quasi vero\n      quas fugiat recusandae quaerat aperiam delectus molestias saepe, laborum\n      doloribus nisi? Esse debitis sunt rerum neque deserunt, ex consequuntur!",
+      "img": "images/image-04.jpg"
+    }
+  ]
+}
