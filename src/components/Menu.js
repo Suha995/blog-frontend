@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import "./menu.scss";
 
 const Menu = () => {
   const [posts, setPosts] = useState(null);
@@ -20,8 +21,9 @@ const Menu = () => {
           posts.map((post) => {
             return (
               <div className="post" key={post.id}>
+                <h2>{post.title}</h2>
                 <div className="img">
-                  <img src={post.img} style={{ width: "50px" }} />
+                  <img src={post.img} />
                 </div>
               </div>
             );

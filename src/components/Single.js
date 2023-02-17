@@ -10,7 +10,7 @@ const Single = () => {
   const [post, setPost] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:8000/posts/" + id)
+    fetch("http://localhost:8000/posts/" + 1)
       .then((res) => res.json())
       .then((data) => setPost(data));
   }, []);
@@ -20,7 +20,7 @@ const Single = () => {
       {post && (
         <div className="post">
           <div className="img">
-            <img src={post.img} alt="jnjjk" />
+            <img src={post.img} />
           </div>
           <div className="post-info">
             <div className="edit">
@@ -37,11 +37,11 @@ const Single = () => {
             </div>
           </div>
           <div className="user">
-            <span>Written by: {post.author}</span>
+            <span>{post.author}</span>
           </div>
         </div>
       )}
-      <Menu>hhjkhjkhj</Menu>
+      <Menu className="menu"></Menu>
     </div>
   );
 };
