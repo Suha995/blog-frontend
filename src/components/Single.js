@@ -10,37 +10,42 @@ const Single = () => {
   const [post, setPost] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:8000/posts/" + 1)
+    fetch("http://localhost:8000/posts/" + id)
       .then((res) => res.json())
-      .then((data) => setPost(data));
+      .then((data) => {
+        setPost(data);
+        console.log(data);
+      });
   }, []);
 
   return (
     <div className="single">
-      {post && (
-        <div className="post">
-          <div className="img">
-            <img src={post.img} />
-          </div>
-          <div className="post-info">
-            <div className="edit">
-              <Link to={"/write?edit=" + id}>
-                <FontAwesomeIcon icon={faPenToSquare} />
-              </Link>
-              <Link to={"/write"}>
-                <FontAwesomeIcon icon={faTrash} />
-              </Link>
+      <div className="container">
+        {post && (
+          <div className="post">
+            <div className="img">
+              <img src={post.img} />
             </div>
-            <div className="info">
-              <h2>{post.title}</h2>
-              <p>{post.body}</p>
+            <div className="post-info">
+              <div className="edit">
+                <Link to={"/write?edit=" + id}>
+                  <FontAwesomeIcon icon={faPenToSquare} />
+                </Link>
+                <Link to={"/write"}>
+                  <FontAwesomeIcon icon={faTrash} />
+                </Link>
+              </div>
+              <div className="info">
+                <h2>{post.title}</h2>
+                <p>{post.body}</p>
+              </div>
+            </div>
+            <div className="user">
+              <span>{post.author}</span>
             </div>
           </div>
-          <div className="user">
-            <span>{post.author}</span>
-          </div>
-        </div>
-      )}
+        )}
+      </div>
       <Menu className="menu"></Menu>
     </div>
   );

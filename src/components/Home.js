@@ -47,7 +47,6 @@ const Home = () => {
             );
           })}
       </div>
-      <div className="menus"></div>
     </div>
   );
 };

@@ -3,6 +3,8 @@ $primary: #eddbc7;
 $second: #a7727d;
 .navbar {
   background-color: $primary;
+  position: sticky;
+  top: 0;
   .container {
     display: flex;
     justify-content: space-between;
