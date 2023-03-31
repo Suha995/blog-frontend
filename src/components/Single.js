@@ -1,22 +1,21 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import "./single.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
 import Menu from "./Menu";
 const Single = () => {
   const { id } = useParams();
   const [post, setPost] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:8000/posts/" + id)
+    fetch("http://localhost:5000/api/posts/" + id)
       .then((res) => res.json())
       .then((data) => {
         setPost(data);
         console.log(data);
       });
-  }, []);
+  }, [id]);
 
   return (
     <div className="single">
@@ -37,16 +36,16 @@ const Single = () => {
               </div>
               <div className="info">
                 <h2>{post.title}</h2>
-                <p>{post.body}</p>
+                <p>{post.desc}</p>
               </div>
             </div>
             <div className="user">
-              <span>{post.author}</span>
+              <span>{post.username}</span>
             </div>
           </div>
         )}
       </div>
-      <Menu className="menu"></Menu>
+      {/* <Menu className="menu"></Menu> */}
     </div>
   );
 };

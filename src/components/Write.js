@@ -1,30 +1,32 @@
 import "./write.scss";
-import Menu from "./Menu";
+// import Menu from "./Menu";
 import { useState, useEffect } from "react";
 const Write = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [category, setCategory] = useState("");
+  const [img, setImage] = useState("");
+  const [isAdded, setIsAdded] = useState(false);
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
-    const blog = { title, body, category };
+    e.preventDefault();
+    const blog = { title, body, category, img };
     fetch("http://localhost:8000/posts", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(blog),
-    }).then(() => {
-      console.log("New Blog added");
-    });
+    })
+      .then((res) => {
+        console.log("helllooo");
+        console.log(res.status);
+        setIsAdded(true);
+      })
+      .catch((err) => console.log(err));
   };
 
-  useEffect(() => {
-    console.log(title);
-    console.log(body);
-    console.log(category);
-  }, [title, body, category]);
   return (
     <div className="write">
+      {isAdded && <span>New Blog has been added</span>}
       <form className="edit" onSubmit={handleSubmit}>
         <input
           type="text"
@@ -48,12 +50,15 @@ const Write = () => {
             <option value="science">Science</option>
           </select>
         </div>
+        <div className="img-file">
+          <input type="file" onChange={(e) => setImage(e.target.value)} />
+        </div>
         <div className="publich">
           <button>PUBLICH</button>
         </div>
       </form>
 
-      <Menu className="menu"></Menu>
+      {/* <Menu className="menu"></Menu> */}
     </div>
   );
 };

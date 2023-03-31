@@ -6,8 +6,9 @@ import Login from "./components/Login";
 import Single from "./components/Single";
 import Write from "./components/Write";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+
 function App() {
+  const user = true;
   return (
     <Router>
       <div className="App">
@@ -15,9 +16,9 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/write" element={<Write />} />
+            <Route path="/login" element={user ? <Home /> : <Login />} />
+            <Route path="/register" element={user ? <Home /> : <Register />} />
+            <Route path="/write" element={user ? <Write /> : <Login />} />
             <Route path="/single/:id" element={<Single />} />
           </Routes>
           <Footer />

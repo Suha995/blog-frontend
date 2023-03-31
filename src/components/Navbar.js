@@ -1,6 +1,7 @@
 import "./navbar.scss";
 import { NavLink } from "react-router-dom";
 const Navbar = () => {
+  const user = true;
   return (
     <div className="navbar">
       <div className="container">
@@ -9,9 +10,9 @@ const Navbar = () => {
         </div>
         <div className="links">
           <NavLink to={"/"}>Home</NavLink>
-          <NavLink to={"/single"}>Single</NavLink>
-          <NavLink to={"/login"}>Logout</NavLink>
+          {/* <NavLink to={"/single"}>Single</NavLink> */}
           <NavLink to={"/write"}>New Blog</NavLink>
+          {user && <NavLink to={"/login"}>Logout</NavLink>}
         </div>
       </div>
     </div>
