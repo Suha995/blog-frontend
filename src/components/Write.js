@@ -10,8 +10,8 @@ const Write = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const blog = { title, body, category, img };
-    fetch("http://localhost:8000/posts", {
+    const blog = { title, desc: body, categories: category, photo: img };
+    fetch("http://localhost:8000/api/posts", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(blog),
@@ -61,6 +61,6 @@ const Write = () => {
       {/* <Menu className="menu"></Menu> */}
     </div>
   );
-};
+}; ///
 
 export default Write;

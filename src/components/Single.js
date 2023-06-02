@@ -6,10 +6,10 @@ import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 import Menu from "./Menu";
 const Single = () => {
   const { id } = useParams();
-  const [post, setPost] = useState("");
+  const [post, setPost] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/posts/" + id)
+    fetch("http://localhost:8000/api/posts/" + id)
       .then((res) => res.json())
       .then((data) => {
         setPost(data);
@@ -22,9 +22,11 @@ const Single = () => {
       <div className="container">
         {post && (
           <div className="post">
-            <div className="img">
-              <img src={post.img} />
-            </div>
+            {post.photo && (
+              <div className="img">
+                <img src={post.photo} />
+              </div>
+            )}
             <div className="post-info">
               <div className="edit">
                 <Link to={"/write?edit=" + id}>
@@ -40,7 +42,9 @@ const Single = () => {
               </div>
             </div>
             <div className="user">
-              <span>{post.username}</span>
+              <Link to={`/?username=${post.username}`}>
+                <span>{post.username}</span>
+              </Link>
             </div>
           </div>
         )}

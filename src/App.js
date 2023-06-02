@@ -19,7 +19,7 @@ function App() {
             <Route path="/login" element={user ? <Home /> : <Login />} />
             <Route path="/register" element={user ? <Home /> : <Register />} />
             <Route path="/write" element={user ? <Write /> : <Login />} />
-            <Route path="/single/:id" element={<Single />} />
+            <Route path="/post/:id" element={<Single />} />
           </Routes>
           <Footer />
         </div>
