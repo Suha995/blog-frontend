@@ -2,41 +2,38 @@
 $primary: #eddbc7;
 $second: #a7727d;
 .navbar {
-  background-color: $primary;
-  position: sticky;
-  top: 0;
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    .logo {
-      width: 6rem;
-      height: 6rem;
-      border-radius: 50%;
-      background-color: $second;
-      text-align: center;
-      padding: 2px;
-      span {
-        font-size: 2.5rem;
-        text-align: justify;
-        font-family: "Dancing Script";
-      }
+  background-color: #357d68;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 10px 20px;
+  .logo {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background-color: $second;
+    text-align: center;
+    padding: 2px;
+    span {
+      font-size: 2.5rem;
+      text-align: justify;
+      font-family: "Dancing Script";
     }
-    .links {
-      display: flex;
-      gap: 2rem;
-      font-size: 1.5rem;
-      a {
-        color: #000;
-        text-decoration: none;
-      }
-      a:hover {
-        color: #a7727d;
-      }
-      .active {
-        color: #a7727d;
-      }
+  }
+  .links {
+    display: flex;
+    gap: 2rem;
+    font-size: 1.5rem;
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #a7727d;
+    }
+    .active {
+      color: #a7727d;
     }
   }
 }

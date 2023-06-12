@@ -8,10 +8,3 @@
 html {
   font-size: 62.5%;
 }
-.App {
-  display: flex;
-  justify-content: center;
-}
-.container {
-  width: 1024px;
-}
