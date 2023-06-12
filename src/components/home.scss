@@ -1,17 +1,39 @@
 $primary: #eddbc7;
 $second: #a7727d;
 .home {
-  margin-top: 5rem;
-  padding: 0 1rem;
+  .categories {
+    background-color: #000000;
+    color: #ffffff;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: space-between;
+      width: 20%;
+      li {
+        font-size: 1.5rem;
+        a {
+          text-decoration: none;
+          color: #ffffff;
+        }
+      }
+    }
+  }
   .posts {
     display: flex;
+    align-items: center;
     flex-direction: column;
     gap: 7rem;
 
     .post {
       display: flex;
       justify-content: space-between;
-
+      gap: 2rem;
       .description {
         margin: auto 0;
         h2 {
