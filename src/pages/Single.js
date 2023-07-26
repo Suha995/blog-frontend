@@ -3,8 +3,9 @@ import { useParams, Link } from "react-router-dom";
 import "./single.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
-import Menu from "./Menu";
+import Menu from "../components/Menu";
 const Single = () => {
+  const photosLocation = "http://localhost:8000/images/";
   const { id } = useParams();
   const [post, setPost] = useState({});
 
@@ -24,7 +25,7 @@ const Single = () => {
           <div className="post">
             {post.photo && (
               <div className="img">
-                <img src={post.photo} />
+                <img src={photosLocation + post.photo} />
               </div>
             )}
             <div className="post-info">

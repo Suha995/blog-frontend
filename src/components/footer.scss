@@ -2,10 +2,13 @@
 $primary: #eddbc7;
 $second: #a7727d;
 .footer {
-  background-color: $primary;
-  margin-top: 5rem;
-  position: relative;
-  bottom: 0;
+  background-color: transparent;
+  // margin-top: 5rem;
+  // position: fixed;
+  // bottom: 0;
+  // right: 0;
+  // left: 0;
+  width: 100%;
   .container {
     display: flex;
     justify-content: space-between;

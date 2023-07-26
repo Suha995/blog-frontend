@@ -1,0 +1,23 @@
+.categories {
+  background-color: #000000;
+  color: #ffffff;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    li {
+      font-size: 1.5rem;
+      a {
+        text-decoration: none;
+        color: #ffffff;
+      }
+    }
+  }
+}

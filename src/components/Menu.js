@@ -4,7 +4,8 @@ import "./menu.scss";
 
 const Menu = () => {
   const [posts, setPosts] = useState(null);
-  let url = "http://localhost:8000/posts";
+  let url = "http://localhost:8000/api/posts/?limit=2";
+  const photosLocation = "http://localhost:8000/images/";
   //we fetch here form the api random posts with a limit of 3
   // or the most recent posts
 
@@ -15,17 +16,17 @@ const Menu = () => {
   }, []);
   return (
     <div className="menu">
-      <h1>Other Posts you may like</h1>
-      <div className="posts">
+      <h1>Posts you may like</h1>
+      <div className="posts-menu">
         {posts &&
           posts.map((post) => {
             return (
-              <div className="post" key={post.id}>
-                <h2>{post.title}</h2>
-                <div className="img">
-                  <img src={post.img} />
+              <Link to={`/post/${post._id}`}>
+                <div className="post-menu" key={post._id}>
+                  <h2>{post.title}</h2>
+                  <img src={photosLocation + post.photo} />
                 </div>
-              </div>
+              </Link>
             );
           })}
       </div>

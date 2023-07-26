@@ -6,31 +6,32 @@ $second: #a7727d;
   align-items: center;
   border-left: $primary 1px solid;
   padding-left: 1rem;
+
   h1 {
     color: $second;
     font-size: 1.7rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
   }
-  .posts {
+
+  .posts-menu {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    .post {
+
+    gap: 3rem;
+    .post-menu {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      gap: 0.5rem;
       h2 {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         font-weight: 400;
-        margin: 1rem 0;
+        text-align: center;
       }
-      .img {
+
+      img {
         width: 100%;
-        img {
-          width: 100%;
-          height: 200px;
-          object-fit: cover;
-        }
+        height: 20rem;
+        object-fit: cover;
       }
     }
   }

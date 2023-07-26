@@ -1,6 +1,7 @@
-import "./home.scss";
+import "../pages/home.scss";
 import { Link } from "react-router-dom";
 function PostList({ posts }) {
+  const photosLocation = "http://localhost:8000/images/";
   return (
     <>
       {posts &&
@@ -17,7 +18,7 @@ function PostList({ posts }) {
               </div>
               {post.photo && (
                 <div className="img">
-                  <img src={post.photo} alt="" />
+                  <img src={photosLocation + post.photo} alt="" />
                 </div>
               )}
             </div>

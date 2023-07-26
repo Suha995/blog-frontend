@@ -1,4 +1,5 @@
 import "./footer.scss";
+import { useState, useEffect } from "react";
 const Footer = () => {
   return (
     <div className="footer">

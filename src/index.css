@@ -8,3 +8,13 @@
 html {
   font-size: 62.5%;
 }
+a {
+  text-decoration: none;
+  color: black;
+}
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5rem;
+}
