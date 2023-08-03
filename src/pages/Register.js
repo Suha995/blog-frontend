@@ -15,7 +15,7 @@ const Register = () => {
     setPassError(null);
     setIsError(null);
     try {
-      const res = await fetch("http://localhost:8000/api/auth/register", {
+      const res = await fetch("/api/auth/register", {
         method: "POST",
         body: JSON.stringify({ email, password }),
         headers: { "Content-Type": "application/json" },
