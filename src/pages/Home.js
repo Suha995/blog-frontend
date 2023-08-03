@@ -5,7 +5,7 @@ import PostList from "../components/PostList";
 import Categories from "../components/Categories";
 import Menu from "../components/Menu";
 
-const url = "http://localhost:8000/api/posts";
+const url = "/api/posts";
 const Home = () => {
   const [posts, setPosts] = useState([]);
 

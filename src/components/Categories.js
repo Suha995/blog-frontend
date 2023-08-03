@@ -2,7 +2,7 @@ import "./categories.scss";
 import { Link, useLocation, NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-const categoriesUrl = "http://localhost:8000/api/category";
+const categoriesUrl = "/api/category";
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);

@@ -13,7 +13,7 @@ const Login = () => {
     setPassError(null);
     setIsError(null);
     try {
-      const res = await fetch("http://localhost:8000/api/auth/login", {
+      const res = await fetch("/api/auth/login", {
         method: "POST",
         body: JSON.stringify({ email, password }),
         headers: { "Content-Type": "application/json" },

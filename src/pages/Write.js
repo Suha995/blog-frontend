@@ -9,16 +9,6 @@ const Write = () => {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [file, setFile] = useState(null);
-  //const [isAdded, setIsAdded] = useState(false);
-  // const [isEdit, setIsEdit] = useState(false);
-  // const location = useLocation();
-  // console.log(location.search);
-  // if (location.search.includes("edit") === true) {
-  //   setIsEdit(true);
-  //   const id = location.search.split("=")[1];
-  //   console.log(id);
-  //   console.log("hello");
-  // }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,13 +26,13 @@ const Write = () => {
       data.append("file", file);
       blog.photo = filename;
       try {
-        await axios.post("http://localhost:8000/api/upload", data);
+        await axios.post("/api/upload", data);
       } catch (err) {
         console.log(err);
       }
     }
     try {
-      const res = await axios.post("http://localhost:8000/api/posts", blog);
+      const res = await axios.post("/api/posts", blog);
       console.log(res);
       window.location.href = "/post/" + res.data._id;
     } catch (err) {

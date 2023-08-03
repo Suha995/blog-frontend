@@ -1,7 +1,7 @@
 import "../pages/home.scss";
 import { Link } from "react-router-dom";
 function PostList({ posts }) {
-  const photosLocation = "http://localhost:8000/images/";
+  const photosLocation = "/images/";
   return (
     <>
       {posts &&

@@ -5,12 +5,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 import Menu from "../components/Menu";
 const Single = () => {
-  const photosLocation = "http://localhost:8000/images/";
+  const photosLocation = "/images/";
   const { id } = useParams();
   const [post, setPost] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/posts/" + id)
+    fetch("/api/posts/" + id)
       .then((res) => res.json())
       .then((data) => {
         setPost(data);

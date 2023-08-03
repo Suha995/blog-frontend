@@ -4,8 +4,8 @@ import "./menu.scss";
 
 const Menu = () => {
   const [posts, setPosts] = useState(null);
-  let url = "http://localhost:8000/api/posts/?limit=2";
-  const photosLocation = "http://localhost:8000/images/";
+  let url = "/api/posts/?limit=2";
+  const photosLocation = "/images/";
   //we fetch here form the api random posts with a limit of 3
   // or the most recent posts
 
