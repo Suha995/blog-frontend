@@ -1,8 +1,7 @@
 import "./home.scss";
-import { Link, useLocation, NavLink } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import PostList from "../components/PostList";
-import Categories from "../components/Categories";
 import Menu from "../components/Menu";
 
 const url = "/api/posts";
@@ -11,14 +10,13 @@ const Home = () => {
 
   const location = useLocation();
 
-  console.log(location);
+  // console.log(location);
 
   useEffect(() => {
-    console.log(url);
     fetch(url + location.search)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setPosts(data);
       })
       .catch((err) => console.log(err.message));

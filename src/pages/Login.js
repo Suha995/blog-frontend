@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { Context } from "../context/Context";
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [emailError, setEmailError] = useState(null);
-  const [passError, setPassError] = useState(null);
-  const [isError, setIsError] = useState(null);
+  const [loginError, setloginError] = useState(null);
+  const { user, dispatch, error, isFetching } = useContext(Context);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setEmailError(null);
-    setPassError(null);
-    setIsError(null);
+    setloginError(null);
+    dispatch({ type: "LOGIN_START" });
     try {
       const res = await fetch("/api/auth/login", {
         method: "POST",
@@ -19,22 +19,23 @@ const Login = () => {
         headers: { "Content-Type": "application/json" },
       });
       const data = await res.json();
-      console.log(data);
-      if (data.errors) {
-        setEmailError(data.errors.email);
-        setPassError(data.errors.password);
+      if (!res.ok) {
+        setloginError(data.errors.email || data.errors.password);
         return;
       }
-      window.location.href = "/";
+      dispatch({ type: "LOGIN_SUCCESS", payload: data });
+      // window.location.href = "/"; // you don't need it any more because the the context changed and it
+      //causes every other component that access it to rerender so the app will rerender
     } catch (err) {
-      console.log(err);
-      setIsError("Sth went wrong" + err);
+      console.error(err);
+      dispatch("LOGIN_FAILURE");
     }
   };
+  console.log(error);
+  console.log(user);
   return (
     <div className="login">
       <h2>Login</h2>
-      {isError && <span>{isError}</span>}
       <form onSubmit={handleSubmit}>
         <label>Email</label>
         <input
@@ -42,7 +43,6 @@ const Login = () => {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        {emailError && <div className="error">{emailError}</div>}
 
         <label>Password</label>
         <input
@@ -50,8 +50,11 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        {passError && <div className="error">{passError}</div>}
-        <button>Login</button>
+
+        <button style={isFetching ? { cursor: "not-allowed" } : null}>
+          Login
+        </button>
+        {loginError && <div className="loginError">{loginError}</div>}
         <span>
           Don't have an account? <Link to={"/register"}>Create one now.</Link>
         </span>

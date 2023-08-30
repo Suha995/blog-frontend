@@ -21,7 +21,7 @@ const Menu = () => {
         {posts &&
           posts.map((post) => {
             return (
-              <Link to={`/post/${post._id}`}>
+              <Link to={`/post/${post._id}`} key={post._id}>
                 <div className="post-menu" key={post._id}>
                   <h2>{post.title}</h2>
                   <img src={photosLocation + post.photo} />
