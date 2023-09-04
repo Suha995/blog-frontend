@@ -1,19 +1,16 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useState, useContext } from "react";
+import { Context } from "../context/Context";
 import "./login-register.scss";
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [emailError, setEmailError] = useState(null);
-  const [passError, setPassError] = useState(null);
-  const [isError, setIsError] = useState(null);
-
+  const [registerError, setRegisterError] = useState(null);
+  const { user, dispatch, isFetching } = useContext(Context);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setEmailError(null);
-    setPassError(null);
-    setIsError(null);
+    setRegisterError(null);
+    dispatch({ type: "LOGIN_START" });
     try {
       const res = await fetch("/api/auth/register", {
         method: "POST",
@@ -22,23 +19,21 @@ const Register = () => {
         withCredentials: true,
       });
       const data = await res.json();
-      console.log(data);
-      if (data.errors) {
-        setEmailError(data.errors.email);
-        setPassError(data.errors.password);
+      if (!res.ok) {
+        setRegisterError(data.errors.email || data.errors.password);
         return;
       }
-      window.location.href = "/";
+      dispatch({ type: "LOGIN_SUCCESS", payload: data });
     } catch (err) {
-      console.log(err);
-      setIsError("Sth went wrong" + err);
+      console.error(err);
+      dispatch("LOGIN_FAILURE");
     }
   };
-
+  console.log(user);
   return (
     <div className="register">
       <h2>Register</h2>
-      {isError && <span>{isError}</span>}
+
       <form onSubmit={handleSubmit}>
         <label>Email</label>
         <input
@@ -46,7 +41,6 @@ const Register = () => {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        {emailError && <div className="error">{emailError}</div>}
 
         <label>Password</label>
         <input
@@ -54,8 +48,11 @@ const Register = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        {passError && <div className="error">{passError}</div>}
-        <button>Register</button>
+
+        <button style={isFetching ? { cursor: "not-allowed" } : null}>
+          Register
+        </button>
+        {registerError && <div className="loginError">{registerError}</div>}
         <span>
           Already Registered? <Link to={"/login"}>Log in now.</Link>
         </span>

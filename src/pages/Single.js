@@ -39,12 +39,14 @@ const Single = () => {
               </div>
               <div className="info">
                 <h2>{post.title}</h2>
-                <p>{post.desc}</p>
+                <p>{post.body}</p>
               </div>
             </div>
             <div className="user">
-              <Link to={`/?username=${post.username}`}>
-                <span>{post.username}</span>
+              <Link to={`/?email=${post.email}`}>
+                {" "}
+                {/*Should go to the first page*/}
+                <span>{post.email}</span>
               </Link>
             </div>
           </div>

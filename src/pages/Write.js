@@ -1,15 +1,16 @@
 import "./write.scss";
 import Menu from "../components/Menu";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
+import { Context } from "../context/Context";
 const Write = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [file, setFile] = useState(null);
-
+  const { user } = useContext(Context);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const blog = {
@@ -17,16 +18,21 @@ const Write = () => {
       desc: description,
       body: body,
       categories: [category],
+      email: user.email,
     };
     if (file) {
       const data = new FormData();
       const filename = Date.now() + file.name;
+      {
+        /*To make sure that the user does not upload images with same name*/
+      }
       console.log(file.name);
       data.append("name", filename);
       data.append("file", file);
       blog.photo = filename;
       try {
-        await axios.post("/api/upload", data);
+        const res = await axios.post("/api/upload", data);
+        console.log(res.data);
       } catch (err) {
         console.log(err);
       }
@@ -34,12 +40,12 @@ const Write = () => {
     try {
       const res = await axios.post("/api/posts", blog);
       console.log(res);
-      window.location.href = "/post/" + res.data._id;
+      window.location.replace("/post/" + res.data._id);
     } catch (err) {
       console.log(err);
     }
   };
-
+  console.log(user);
   return (
     <div className="write-container">
       <div className="write">

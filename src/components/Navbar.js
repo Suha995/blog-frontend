@@ -4,6 +4,8 @@ import { Context } from "../context/Context";
 import { useContext } from "react";
 const Navbar = () => {
   const { user, dispatch } = useContext(Context);
+
+  console.log(user);
   return (
     <div className="navbar">
       <div className="links">

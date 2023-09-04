@@ -10,7 +10,7 @@ const Home = () => {
 
   const location = useLocation();
 
-  // console.log(location);
+  console.log(location);
 
   useEffect(() => {
     fetch(url + location.search)
