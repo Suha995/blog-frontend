@@ -19,7 +19,7 @@ const Navbar = () => {
       <div className="links">
         {user ? (
           <>
-            <span>{user.email}</span>
+            <NavLink to={`/user/${user._id}`}>{user.email}</NavLink>
             <NavLink
               to={"/login"}
               onClick={() => {

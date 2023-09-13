@@ -5,6 +5,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Single from "./pages/Single";
 import Write from "./pages/Write";
+import User from "./pages/User";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Context } from "./context/Context";
 import { useContext } from "react";
@@ -25,6 +26,7 @@ function App() {
               />
               <Route path="/write" element={user ? <Write /> : <Register />} />
               <Route path="/post/:id" element={<Single />} />
+              <Route path="/user/:id" element={<User />} />
             </Routes>
           </div>
           {/* <Footer /> */}
